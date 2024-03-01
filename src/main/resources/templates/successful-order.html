@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aroma Shop - Cart</title>
+    <link rel="icon" href="/img/Fevicon.png" type="image/png">
+    <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="/vendors/linericon/style.css">
+    <link rel="stylesheet" href="/vendors/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/vendors/nice-select/nice-select.css">
+    <link rel="stylesheet" href="/vendors/nouislider/nouislider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/successful-order-style.css">
+</head>
+<body>
+<!--================ Start Header Menu Area =================-->
+<header class="header_area">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand logo_h" th:href="@{/}"><img src="/img/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+                        <li class="nav-item active"><a class="nav-link" th:href="@{/}">Home</a></li>
+                        <li class="nav-item"><a th:href="@{/shop}" class="nav-link" >Shop</a> </li>
+                        <li class="nav-item" ><a th:href="@{/tracking}" class="nav-link" aria-expanded="false">Tracking</a></li>
+                        <li class="nav-item" ><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+                    </ul>
+
+                    <ul class="nav-shop">
+                        <li class="nav-item"><a th:href="@{/history}"><button><i class="fa fa-history" aria-hidden="true"></i></button></a></li>
+                        <li class="nav-item"><a th:href="@{/cart}"><button><i class="ti-shopping-cart"></i>
+                            <span id="nav-shop" class="nav-shop__circle"></span>
+                        </button> </a>
+                        </li>
+                        <li class="nav-item" sec:authorize="isAuthenticated()"><a th:href="@{/likes}"><button><i class="ti-heart"></i>
+                            <span id="nav-likes" class="nav-shop__circle"></span>
+                        </button> </a>
+                        </li>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()" ><a class="button button-header" th:href="@{/login}">Login</a></li>
+
+                        <li sec:authorize="isAuthenticated()" class="nav-item">
+                            <form th:method="POST" th:action="@{/logout}">
+                                <button class="button button-header">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+            <div class="success-container">
+                <img class="success-image" src="/img/product/Tick_Mark_Dark_icon-icons.com_69147.png" alt="Зеленая галочка">
+                <div class="success-text">Your order has been successfully completed</div>
+                <p class="success-text" style="font-weight: bold; color: midnightblue;" th:text="'Your order number: #' + ${getIdOrder}"></p>
+                <button class="go-to-home-button" onclick="window.location.href = '/' ">Go to home</button>
+            </div>
+
+<script>
+    document.getElementById('phoneInput').addEventListener('input', function () {
+        var phoneInput = this;
+        validateNumber(phoneInput)
+    });
+</script>
+
+<script src="/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

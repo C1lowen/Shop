@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aroma Shop - Category</title>
+	<link rel="icon" href="/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="/vendors/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="/vendors/linericon/style.css">
+  <link rel="stylesheet" href="/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/vendors/nouislider/nouislider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" th:href="@{/}"><img src="/img/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+              <li class="nav-item active"><a class="nav-link" th:href="@{/}">Home</a></li>
+              <li class="nav-item"><a th:href="@{/shop}" class="nav-link">Shop</a> </li>
+              <li class="nav-item" ><a th:href="@{/tracking}" class="nav-link" aria-expanded="false">Tracking</a></li>
+              <li class="nav-item" ><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+            </ul>
+
+            <ul class="nav-shop">
+                <li class="nav-item"><a th:href="@{/history}"><button><i class="fa fa-history" aria-hidden="true"></i></button></a></li>
+                <li class="nav-item"><a th:href="@{/cart}"><button><i class="ti-shopping-cart"></i>
+                    <span id="nav-shop" class="nav-shop__circle"></span>
+                </button> </a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()"><a th:href="@{/likes}"><button><i class="ti-heart"></i>
+                    <span id="nav-likes" class="nav-shop__circle"></span>
+                </button> </a>
+                </li>
+              <li class="nav-item" sec:authorize="!isAuthenticated()" ><a class="button button-header" th:href="@{/login}">Login</a></li>
+
+              <li sec:authorize="isAuthenticated()" class="nav-item">
+                <form th:method="POST" th:action="@{/logout}">
+                  <button class="button button-header">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Logout
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+	<!--================ End Header Menu Area =================-->
+
+	<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Shop Category</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shop Category</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
+
+
+	<!-- ================ category section start ================= -->
+  <form id="shop-root-form" method="GET" action="/shop">
+  <section class="section-margin--small mb-5">
+        <div class="container">
+          <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-5">
+                      <div class="sidebar-categories">
+                        <div class="head">Browse Categories</div>
+                            <ul class="main-categories">
+                              <li class="common-filter">
+                                <form action="#" id="gender-form">
+                                  <ul id="gender-root-answer">
+                                    <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${genderBox != null && #arrays.contains(genderBox, 'Men')}" id="men" name="Men"><label for="men">Men</label></li>
+                                    <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${genderBox != null && #arrays.contains(genderBox, 'Women')}" id="women" name="Women"><label for="women">Women</label></li>
+                                  </ul>
+                                </form>
+                              </li>
+                            </ul>
+                      </div>
+                      <div class="sidebar-filter">
+                        <div class="top-filter-head">Product Filters</div>
+                        <div class="common-filter">
+                          <div class="head">Brands</div>
+                          <form action="#" id="brands-form">
+                            <ul>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${brandsBox != null && #arrays.contains(brandsBox, 'Adidas')}" id="apple" name="Adidas"><label for="apple">Adidas</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${brandsBox != null && #arrays.contains(brandsBox, 'New Balance')}" id="asus" name="New Balance"><label for="asus">New Balance</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${brandsBox != null && #arrays.contains(brandsBox, 'Skechers')}" id="gionee" name="Skechers"><label for="gionee">Skechers</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${brandsBox != null && #arrays.contains(brandsBox, 'Nike')}" id="micromax" name="Nike"><label for="micromax">Nike</label></li>
+                            </ul>
+                          </form>
+                        </div>
+                        <div class="common-filter">
+                          <div class="head">Color</div>
+                          <form action="#" id="color-form" th:object="${colorBox}">
+                            <ul>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${colorBox != null && #arrays.contains(colorBox , 'Black')}" id="black" name="Black"><label for="black">Black</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${colorBox  != null && #arrays.contains(colorBox , 'White-Black')}" id="balckleather" name="White-Black"><label for="balckleather">White-Black</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${colorBox  != null && #arrays.contains(colorBox , 'White')}" id="blackred" name="White"><label for="blackred">White</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${colorBox  != null && #arrays.contains(colorBox , 'Red')}" id="gold" name="Red"><label for="gold">Red</label></li>
+                              <li class="filter-list"><input class="pixel-radio" type="checkbox" th:checked="${colorBox  != null && #arrays.contains(colorBox , 'Gray')}" id="spacegrey" name="Gray"><label for="spacegrey">Gray</label></li>
+                            </ul>
+                          </form>
+                        </div>
+                        <div class="common-filter">
+                          <div class="head">Price</div>
+                          <div class="price-range-area">
+                            <div id="price-range"></div>
+                            <div class="value-wrapper d-flex">
+                                <div class="price">Price:</div>
+                                <span>$</span>
+                                <div id="lower-value" th:text="${price.getMinPrice()}"></div>
+                                <div class="to">to</div>
+                                <span>$</span>
+                                <div id="upper-value" th:text="${price.getMaxPrice()}" ></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="common-filter">
+                            <button class="dynamic-button" type="submit" onclick="filterCheck()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                Search
+                            </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8 col-md-7">
+                      <!-- Start Filter Bar -->
+                      <div class="filter-bar d-flex flex-wrap align-items-center">
+                        <div class="sorting">
+                          <select id="sorted">
+                              <option value="default" th:selected="${sorted == 'default'}">default</option>
+                              <option value="cheap" th:selected="${sorted == 'cheap'}">From cheap to expensive</option>
+                              <option value="expensive" th:selected="${sorted == 'expensive'}">From expensive to cheap</option>
+                          </select>
+                        </div>
+                        <div class="sorting mr-auto">
+                          <select id="mySelect">
+                            <option value="6" th:selected="${sizePageElements == 6}">Show 6</option>
+                            <option value="9" th:selected="${sizePageElements == 9}">Show 9</option>
+                            <option value="12" th:selected="${sizePageElements == 12}">Show 12</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- End Filter Bar -->
+                      <!-- Start Best Seller -->
+                      <section class="lattest-product-area pb-40 category-list">
+                        <div class="row" id="card-filter">
+                          <div class="col-md-6 col-lg-4" th:each="cart : ${fullCarts}">
+                              <input class="product-id" type="hidden" th:value="${cart.getId()}">
+                            <div class="card text-center card-product">
+                              <div class="card-product__img">
+                                <img class="card-img" th:src="${cart.getImages()}" alt="">
+                                <ul class="card-product__imgOverlay">
+                                    <li><button th:id="${cart.getId()}" type="button" onclick="addToFavoritesCategory(this)"><i class="ti-shopping-cart"></i></button></li>
+                                  <li><button th:id="${cart.getId()} + '-heart'" type="button" sec:authorize="isAuthenticated()" onclick="addToLikesCategory(this)"><i class="ti-heart"></i></button></li>
+                                </ul>
+                              </div>
+                              <div class="card-body">
+                                <p th:text="${cart.getCategory()}"></p>
+                                <h4 class="card-product__title"><a th:href="@{/shop/product/{id}(id=${cart.getId()})}" th:text="${cart.getName()}"></a></h4>
+                                <p class="card-product__price" th:text="${cart.getPrice()} + '0$'"></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <!-- End Best Seller -->
+                    </div>
+                  <input type="hidden" name="gender" id="gender-root-form">
+                  <input type="hidden" name="brands" id="category-root-form">
+                  <input type="hidden" name="color" id="color-root-form">
+                  <input type="hidden" name="sorted" id="sorted-root-form">
+                  <input type="hidden" name="size" id="size-root-form">
+                  <input type="hidden" name="priceStart" id="start-price-root-form">
+                  <input type="hidden" name="priceEnd" id="end-price-root-form">
+                 <input type="hidden" name="page" id="page-root-form">
+
+          </div>
+        </div>
+  </section>
+	<!-- ================ category section end ================= -->
+  <div>
+      <ul class="pagination" id="pagination-shop">
+          <li th:if="${currentPage >= 4 && !fullCarts.isEmpty()}">
+              <a th:href="@{/shop(size=${fullCarts.size}, page=1)}">1</a>
+          </li>
+          <span th:if="${currentPage >= 4}">...</span>
+          <li th:if="${fullCarts.totalPages > 0 && !fullCarts.isEmpty()}"  th:each="pageNumber : ${pageNumbers}">
+              <a onclick="filterCheck(this)"
+                 th:class="${pageNumber == fullCarts.number + 1 ? 'pagination active' : 'pagination li'}"
+                 th:text="${pageNumber}"></a>
+          </li>
+          <span th:if="${lastPage > 4 && currentPage <= (lastPage - 2) && !fullCarts.isEmpty()}">...</span>
+          <li th:if="${lastPage > 4 && currentPage <= (lastPage - 2)}">
+              <a th:href="@{/shop(size=${fullCarts.size}, page=${lastPage})}"
+                 th:text="${lastPage}"></a>
+          </li>
+      </ul>
+  </div>
+  </form>
+
+	<!-- ================ top product area start ================= -->	
+	<section class="related-product-area">
+		<div class="container">
+			<div class="section-intro pb-60px">
+        <p>Popular Item in the market</p>
+        <h2>Top <span class="section-intro__style">Product</span></h2>
+      </div>
+			<div class="row mt-30">
+        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0" >
+          <div class="single-search-product-wrapper">
+            <div class="single-search-product d-flex" th:each="prod : ${adidas}">
+              <a th:href="@{/shop/product/{id}(id=${prod.getId()})}"><img th:src="${prod.getImages()}" alt=""></a>
+              <div class="desc">
+                  <a th:href="@{/shop/product/{id}(id=${prod.getId()})}" class="title" th:text="${prod.getName()}"></a>
+                  <div class="price" th:text="${prod.getPrice()} + '0$'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0" >
+                <div class="single-search-product-wrapper">
+                    <div class="single-search-product d-flex" th:each="prod : ${newBalance}">
+                        <a th:href="@{/shop/product/{id}(id=${prod.getId()})}"><img th:src="${prod.getImages()}" alt=""></a>
+                        <div class="desc">
+                            <a th:href="@{/shop/product/{id}(id=${prod.getId()})}" class="title" th:text="${prod.getName()}"></a>
+                            <div class="price" th:text="${prod.getPrice()} + '0$'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0" >
+                    <div class="single-search-product-wrapper">
+                        <div class="single-search-product d-flex" th:each="prod : ${skechers}">
+                            <a th:href="@{/shop/product/{id}(id=${prod.getId()})}"><img th:src="${prod.getImages()}" alt=""></a>
+                            <div class="desc">
+                                <a th:href="@{/shop/product/{id}(id=${prod.getId()})}" class="title" th:text="${prod.getName()}"></a>
+                                <div class="price" th:text="${prod.getPrice()} + '0$'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0" >
+                    <div class="single-search-product-wrapper">
+                        <div class="single-search-product d-flex" th:each="prod : ${nike}">
+                            <a th:href="@{/shop/product/{id}(id=${prod.getId()})}"><img th:src="${prod.getImages()}" alt=""></a>
+                            <div class="desc">
+                                <a th:href="@{/shop/product/{id}(id=${prod.getId()})}" class="title" th:text="${prod.getName()}"></a>
+                                <div class="price" th:text="${prod.getPrice()} + '0$'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      </div>
+		</div>
+	</section>
+	<!-- ================ top product area end ================= -->		
+
+	<!-- ================ Subscribe section start ================= -->
+  <section class="subscribe-position">
+      <div class="container">
+          <div class="subscribe text-center">
+              <h3 class="subscribe__title">Get Update From Anywhere</h3>
+              <p>Enter your active email and receive promotional codes</p>
+              <div id="mc_embed_signup">
+                  <form target="_blank" class="subscribe-form form-inline mt-5 pt-1">
+                      <div class="form-group ml-sm-auto">
+                          <input class="form-control mb-1" id="email-text" type="email" name="EMAIL" placeholder="Enter your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" >
+                          <div class="info"></div>
+                      </div>
+                      <button class="button button-subscribe mr-auto mb-1" type="button" onclick="validateEmail()">Subscribe Now</button>
+
+                      <div style="position: absolute; left: -5000px;">
+                          <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                      </div>
+                  </form>
+              </div>
+              <p id="error"></p>
+          </div>
+
+      </div>
+  </section>
+	<!-- ================ Subscribe section end ================= -->		  
+
+
+  <!--================ Start footer Area  =================-->
+  <footer class="footer">
+      <div class="footer-area">
+          <div class="container">
+              <div class="row section_gap">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="single-footer-widget tp_widgets">
+                          <h4 class="footer_title large_title">Our Mission</h4>
+                          <p>
+                              Our mission at Aroma Shop is to inspire and support people to achieve their goals through comfort and style.
+                              We strive to provide a wide selection of high quality sneakers that reflect the latest trends in fashion and technology.
+                          </p>
+                          <p>
+                              Whether you play sports, follow fashion trends or are looking for comfortable casual shoes, our store is designed to meet your needs.
+                              We strive to provide a unique shopping experience by offering outstanding service and attention to every customer.
+                              With Aroma Shop, every step of your journey is a step towards style, comfort and self-confidence.
+                          </p>
+                      </div>
+                  </div>
+                  <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                      <div class="single-footer-widget tp_widgets">
+                          <h4 class="footer_title">Quick Links</h4>
+                          <ul class="list">
+                              <li><a href="/">Home</a></li>
+                              <li><a href="/shop">Shop</a></li>
+                              <li><a href="/tracking">Tracking</a></li>
+                              <li><a href="/cart">Cart</a></li>
+                              <li><a href="/contact">Contact</a></li>
+                              <li><a href="/login">Login</a></li>
+                              <li><a href="/register">Registration</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-lg-2 col-md-6 col-sm-6">
+                      <div class="single-footer-widget instafeed">
+                          <h4 class="footer_title">Gallery</h4>
+                          <ul class="list instafeed d-flex flex-wrap">
+                              <li><img src="/img/product/New-Balance-574-ML574EVN-44.png" width="75px" height="75px" alt=""></li>
+                              <li><img src="/img/product/Nike-Precision-Vi-DD9535-007-45.png" width="75px" height="75px" alt=""></li>
+                              <li><img src="/img/product/Gore-Tex-Adidas-Terrex-Swift-R3-Gtx.png" width="75px" height="75px" alt=""></li>
+                              <li><img src="/img/product/Skechers-896044-BLK-41.png" width="75px" height="75px" alt=""></li>
+                              <li><img src="/img/product/Skechers-144521-BKW-37.png" width="75px" height="75px" alt=""></li>
+                              <li><img src="/img/product/New-Balance-530-MR530SMT-42.5.png" width="75px" height="75px" alt=""></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+                      <div class="single-footer-widget tp_widgets">
+                          <h4 class="footer_title">Contact Us</h4>
+                          <div class="ml-40">
+                              <p class="sm-head">
+                                  <span class="fa fa-location-arrow"></span>
+                                  Head Office
+                              </p>
+                              <p>123, Kharkov street, Kiev</p>
+
+                              <p class="sm-head">
+                                  <span class="fa fa-phone"></span>
+                                  Phone Number
+                              </p>
+                              <p>
+                                  +380731238979
+                              </p>
+
+                              <p class="sm-head">
+                                  <span class="fa fa-envelope"></span>
+                                  Email
+                              </p>
+                              <p>
+                                  evgenijobedkov@gmail.com
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+	<!--================ End footer Area  =================-->
+
+
+
+  <script src="/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+
+  <script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="/vendors/nouislider/nouislider.min.js"></script>
+  <script src="/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="/vendors/mail-script.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/categoryfilter.js"></script>
+    <script src="/js/favorite.js"></script>
+    <script src="/js/loadedpagecategory.js"></script>
+    <script src="/js/loadcountcart.js"></script>
+    <script src="/js/likes.js"></script>
+    <script src="/js/newsletter.js"></script>
+
+</body>
+</html>

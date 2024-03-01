@@ -1,0 +1,107 @@
+.scroll-container {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Цвет фона страницы */
+}
+  
+  .scroll-container {
+    width: 50%; /* Изменено с 50% для лучшей адаптации */
+    margin: 20px auto; /* Изменено для добавления отступа сверху и снизу */
+    overflow-y: auto;
+    max-height: 100vh; /* Изменено с 100vh для лучшей адаптации */
+    padding: 20px;
+    background-color: #fff; /* Цвет фона контейнера */
+    border-radius: 10px; /* Скругление углов контейнера */
+    box-shadow: 0 0 10px rgb(1, 1, 61); /* Тень контейнера */
+    scrollbar-width: thin; /* Скрытие стандартного скролла в Firefox */
+    box-sizing: border-box;
+  }
+  
+  /* Стили для WebKit (Chrome, Safari) и Blink (Opera) */
+  .scroll-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* Цвет ползунка кастомного скролла в WebKit и Blink */
+  }
+  
+  .order-block {
+    margin-bottom: 20px;
+    border: 2px solid #7e4640; /* Цвет рамки заказа */
+    padding: 15px;
+    border-radius: 8px; /* Скругление углов заказа */
+    background-color: #fff; /* Цвет фона заказа */
+  }
+  
+  h2 {
+    margin-top: 0;
+    color: #3498db; /* Цвет заголовка заказа */
+  }
+  
+  .product-row {
+    display: flex;
+    flex-wrap: wrap; /* Новое: позволяет рядам продолжаться на новую строку */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .product-info img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(142 78 143);
+  }
+  
+  .order-total {
+    text-align: right;
+    font-weight: bold;
+    color: #27ae60; /* Цвет текста общей суммы и скидки */
+    margin-top: 10px;
+  }
+
+@media only screen and (max-width: 1400px) {
+  .scroll-container {
+    width: 60%;
+    max-height: none; /* Избегаем ограничения высоты на мобильных устройствах */
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .scroll-container {
+    width: 70%;
+    max-height: none; /* Избегаем ограничения высоты на мобильных устройствах */
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .scroll-container {
+    width: 80%;
+    max-height: none; /* Избегаем ограничения высоты на мобильных устройствах */
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .scroll-container {
+    width: 90%;
+    max-height: none; /* Избегаем ограничения высоты на мобильных устройствах */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .scroll-container {
+    width: 100%;
+    max-height: none; /* Избегаем ограничения высоты на мобильных устройствах */
+  }
+}
+
+  @media only screen and (max-width: 600px) {
+    .scroll-container {
+      width: 100%;
+      max-height: none; /* Избегаем ограничения высоты на мобильных устройствах */
+    }
+  }

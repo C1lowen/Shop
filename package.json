@@ -1,0 +1,17 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/C1lowen/shopproject.git"
+  },
+  "private": true,
+  "dependencies": {
+    "mutationobserver-shim": "^0.3.7"
+  }
+}
