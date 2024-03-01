@@ -1,30 +1,30 @@
-<h1>О магазине</h1>
+<h1>About the store</h1>
 
-Мой интернет-магазин кроссовок - это результат многих часов усилий, преданности и страсти к разработке. В основе его работы лежит качественный back-end, который я разработал с нуля, а front-end был взят за основу и тщательно дополнен мной для достижения оптимальной пользовательской дружелюбности.
+My online sneaker store is the result of many hours of effort, dedication and passion for development. Its work is based on a high-quality back-end, which I developed from scratch, and the front-end was taken as a basis and carefully expanded by me to achieve optimal user friendliness.
 
-<h3>Вот рабочая версия этого проекта: </h3>
+<h3>Here is a working version of this project: </h3>
 link: http://34.83.26.101:8080/
 
-<h1>Технологии</h1>
+<h1>Technology</h1>
 
 <h3>Back-End:</h3>
-<h5>Spring Boot: </h5> Использовал этот мощный фреймворк для ускорения процесса разработки и создания надежного back-end'а.
-<h5>Hibernate, JPA, Criteria API:</h5> Эти технологии обеспечивают эффективную работу с базой данных, позволяя генерировать динамические запросы.
-<h5>Postgres:</h5> Надежная реляционная база данных для хранения данных магазина.
-<h5>Flyway:</h5> Использовал для миграции баз данных, обеспечивая стабильность и управляемость изменениями в структуре данных.
-<h5>Spring Security:</h5> Гарантирует безопасность приложения, защищая от несанкционированного доступа.
-<h5>Spring Data, Spring MVC:</h5> Дополнительные инструменты для удобства работы с данными и веб-приложением.
+<h5>Spring Boot: </h5> Used this powerful framework to speed up the development process and create a reliable back-end.
+<h5>Hibernate, JPA, Criteria API:</h5> These technologies provide efficient work with the database, allowing you to generate dynamic queries.
+<h5>Postgres:</h5> Reliable relational database for storing store data.
+<h5>Flyway:</h5> Used for database migration, ensuring stability and controllability of changes in the data structure.
+<h5>Spring Security:</h5> Ensures the security of the application, protecting against unauthorized access.
+<h5>Spring Data, Spring MVC:</h5> Additional tools for ease of working with data and web applications.
 
-<h3>Front-End</h3>:</h3>
-<h5>JavaScript (JS):</h5> Добавлял функциональность и настраивал общение между клиентом и сервером.
-<h5>HTML, CSS:</h5> Использовал шаблон для создания приятного визуального интерфейса, а также допиливал страницы по необходимости.
+<h3>Front-End:</h3>
+<h5>JavaScript (JS):</h5> Added functionality and configured communication between client and server.
+<h5>HTML, CSS:</h5> Used a template to create a nice visual interface, and also added pages as needed.
 
-<h1>Дополнительные технологии:</h1>
+<h1>Additional technologies:</h1>
 
-<h5>Docker:</h5> Обеспечивает легкость развертывания и масштабирования приложения.
-<h5>Oauth2:</h5> Для безопасной авторизации через Google, обеспечивая удобство и безопасность для пользователей.
-<h5>JavaMailSender:</h5> Использовал для рассылки и смены пароля через электронную почту.
-<h5>Stream API:</h5> Повышает эффективность обработки данных в Java.
+<h5>Docker:</h5> Provides ease of application deployment and scaling.
+<h5>Oauth2:</h5> For secure authorization via Google, providing convenience and security for users.
+<h5>JavaMailSender:</h5> Used for sending and changing passwords via email.
+<h5>Stream API:</h5> Improves the efficiency of data processing in Java.
 
-<h1>Будущие планы</h1>
-Мой интернет-магазин кроссовок - это живой проект, который будет продолжать развиваться. В планах добавление админской панели, определение роли администратора и расширение функционала. Я стремлюсь сделать его еще более удобным и функциональным для пользователей.
+<h1>Future plans</h1>
+My online sneaker store is a living project that will continue to develop. There are plans to add an admin panel, define the administrator role and expand functionality. I strive to make it even more convenient and functional for users.
